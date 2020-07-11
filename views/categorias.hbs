@@ -1,0 +1,33 @@
+<div class="container" style="margin: 50px auto;">
+    <div class="row">
+        <div class="col-6 offset-3">
+
+            <section class="row2 top">
+                <div class="parent">
+                    {{#each noticias}}
+                    <div class="child">
+                        <p>
+                            <span class="date">{{fecha}}</span>
+                            <br>
+                            <a class="title" href="noticias/noticia.html">
+                                {{titulo}}
+                            </a>
+                            <br>
+                            <a class="category" href="/categorias">{{categoria}}</a>
+                        </p>
+                        <div>
+                            <span class="texto truncate">{{contenido}}</span>
+                        </div>
+                        <p style="margin:5px 0 0; padding: 0">
+                            <a class="texto" href="noticias/noticia.html">Seguir leyendo</a>
+                        </p>
+                    </div>
+                    {{/each}}
+                </div>
+
+
+            </section>
+
+        </div>
+    </div>
+</div>

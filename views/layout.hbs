@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Epigrama</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/flickity.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
+    {{!-- <link rel="stylesheet" href="stylesheets/bootstrap.min2.css"> --}}
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/flickity.css">
+    <link rel="stylesheet" href="stylesheets/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Lobster+Two:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -16,21 +22,22 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
     <header>
         <div class="social">
             <ul>
-                <li><a class="back" href="editorial.html">LA EDITORIAL</a></li>
-                <li><a class="back" href="contacto.html">CONTACTO</a></li>
+                <li><a class="back {{#if IsEditorial}} active2 {{/if}}" href="/editorial">LA EDITORIAL</a></li>
+                <li><a class="back {{#if IsContacto}} active2 {{/if}}" href="/contacto">CONTACTO</a></li>
                 <li><a class="icon-facebook2" href="#"></a></li>
                 <li><a class="icon-twitter" href="#"></a></li>
                 <li><a class="icon-instagram" href="#"></a></li>
-                <li><a class="icon-whatsapp" href="#"></a></li> 
+                <li><a class="icon-whatsapp" href="#"></a></li>
             </ul>
         </div>
         <div class="holder">
-            <a class="link-logo" href="index.html">
-                <img src="img/Logoanagrama.png" alt="epigrama">
+            <a class="link-logo" href="/">
+                <img src="images/Logoanagrama.png" alt="epigrama">
                 <div class="sub">
                     <h2>Epigrama</h2>
                 </div>
@@ -41,15 +48,16 @@
         <div class="holder">
             <div class="main-nav">
                 <ul>
-                    <li><a class="active first" href="index.html">Inicio</a></li>
-                    <li><a href="novedades.html">Novedades</a></li>
+                    <li><a href="/" class="{{#if IsHome}} active first {{/if}}" href="index.html">Inicio</a></li>
+                    <li><a href="/novedades" class="{{#if IsNovedades}} active {{/if}}">Novedades</a></li>
                     <li class="dropdown">
-                        <a class="dropbtn" href="catalogo.html">Catálogo</a>
+                        <a class="dropbtn{{#if IsCatalogo}} active {{/if}} " href="/catalogo">Catálogo</a>
                         <div class="dropdown-content">
                             <h2 style="margin-top: 40px; margin-bottom: 0;">Catálogo</h2>
                             <div class="sub-menu">
-                                <a class="drop" href="catalogo.html">
-                                    <span class="icon-menu" style="cursor: default;font-size: 12px; line-height: 20px;"></span>
+                                <a class="drop" href="/catalogo">
+                                    <span class="icon-menu"
+                                        style="cursor: default;font-size: 12px; line-height: 20px;"></span>
                                     <span style="font-weight: bold;">Colecciones</span></a>
                                 <ul>
                                     <li><a href="../catalogo.html">Panorama Narrativas</a></li>
@@ -65,15 +73,17 @@
                             <div class="sub-menu2">
                                 <a style="font-weight: bold;" class="drop" href="">Boletines</a>
                                 <ul>
-                                    <li><a style="margin-top: 6.5px;" href="../files/el-atlas-de-la-educacion.pdf">Boletín de novedades</a></li>
+                                    <li><a style="margin-top: 6.5px;"
+                                            href="../files/el-atlas-de-la-educacion.pdf">Boletín de novedades</a></li>
                                 </ul>
-                                <a style="margin-top: 14px;"class="drop"href="../coleccion/ebooks.html"><strong>E-books</strong></a>
+                                <a style="margin-top: 14px;" class="drop"
+                                    href="../coleccion/ebooks.html"><strong>E-books</strong></a>
                             </div>
                         </div>
                     </li>
-                    <li><a href="autores.html">Autores</a></li>
+                    <li><a class="{{#if IsAutores}} active {{/if}}" href="/autores">Autores</a></li>
                     <li class="dropdown">
-                        <a class="dropbtn" href="noticias.html">Noticias</a>
+                        <a class="dropbtn {{#if IsNoticias}} active {{/if}}" href="/noticias">Noticias</a>
                         <div class="dropdown-content2">
                             <h2 style="margin-top: 40px; margin-bottom: 0;">Noticias</h2>
                             <div class="sub-menu3">
@@ -89,306 +99,59 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a class="{{#if IsAgenda}} active {{/if}}" href="/agenda">Agenda</a></li>
                     <!-- <li><a href="editorial.html">La Editorial</a></li> -->
                     <!-- <li><a href="contacto.html">Contacto</a></li> -->
+                    <li><a href="/admin/login">Log-in <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                    {{!-- <li>
+                        <div class=>
+                            <form style="margin: 0;padding:0;" action="/resultados">
+                                <input style="width: 60px; margin-top: 6px;" type="search" placeholder="Search.."
+                                    name="q" {{#if q}} value="{{q}}" {{/if}}>
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </li> --}}
+                    {{!-- <li>
+                            <form class="form-inline my-2 my-lg-0"action="/admin/noticias" method="get">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                    aria-label="Search" name="q" {{#if q}} value="{{q}}" {{/if}}>
+                            </form>
+                    </li> --}}
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="holder">
-        <button class="icon-ctrl" onclick="topFunction()" id="myBtn" title="Ir arriba"></button>
-        <!-- <div class="shadow"></div> -->
-
-        <!-- galería principal -->
-
-        <div class="primary-gallery js-flickity" 
-        data-flickity-options='{ "autoPlay": 2800, "draggable": false, "wrapAround": true, "selectedAttraction": 0.018,
-        "friction": 0.28}'>       
-            <div class="gallery-cell color1">
-                <a href="novedades.html">
-                    <div class="tapa">
-                        <img src="img/libro-nov.webp" alt="libro" width="170">
-                    </div>
-                    <div class="datos">
-                        <div class="title">
-                            <h2>Slavoj Žižek</h2>
-                        </div>
-                        <div class="extra">
-                            <h1>Pandemia</h1>
-                            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nostrum quis magni odit reiciendis dicta quod tempore atque enim qui molestiae quas nam voluptate accusantium fugiat, asperiores error. Incidunt, repellat.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="gallery-cell color2">
-                <a href="novedades.html">
-                    <div class="tapa">
-                        <img src="img/loscombatientes.webp" alt="libro" width="170">
-                    </div>
-                    <div class="datos color3">
-                        <div class="title">
-                            <h2>Cristina Morales</h2>
-                        </div>
-                        <div class="extra">
-                            <h1 style="font-style: italic;">Los combatientes</h1>
-                            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nostrum quis magni odit reiciendis dicta quod tempore atque enim qui molestiae quas nam voluptate accusantium fugiat, asperiores error. Incidunt, repellat.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="gallery-cell color4">
-                <a href="eventos/evento2.html">
-                    <div class="tapa">
-                        <img src="img/agend2.jpeg" alt="evento" width="170">
-                    </div>
-                    <div class="datos" style="background-color:#E5E1D8;">
-                        <div class="title">
-                            <h2>Juan Tallón</h2>
-                        </div>
-                        <div class="extra">
-                            <!-- <h1>Rewind</h1> -->
-                            <h2>Encuentro virtual</h2>
-                            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nostrum quis magni odit reiciendis dicta quod tempore atque enim qui molestiae quas nam voluptate accusantium fugiat, asperiores error. Incidunt, repellat.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="gallery-cell color5">
-                <a href="eventos/evento1.html">
-                    <div class="tapa">
-                        <img src="img/agend.webp" alt="evento" width="170">
-                    </div>
-                    <div class="datos" style="background-color: #FFFFFF;">
-                        <div class="title">
-                            <h2>Eloy <br> Fernández Porta</h2>
-                        </div>
-                        <div class="extra">
-                            <!-- <h1 style="font-style: italic;">L’art de fer-ne <br> un gra massa</h1> -->
-                            <h2>Presentación virtual</h2>
-                            <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nostrum quis magni odit reiciendis dicta quod. Incidunt, repellat.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-        <section class="novedades">
-            <h4>Novedades</h4>
-            <div class="novedades-texto">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis doloremque nemo nam illum vel inventore, aliquid debitis quisquam sapiente similique dignissimos illo laboriosam. Eius architecto odio deleniti impedit labore voluptate!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis doloremque nemo nam illum vel inventore, aliquid debitis quisquam sapiente similique dignissimos illo laboriosam. Eius architecto odio deleniti impedit labore voluptate!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis doloremque nemo nam illum vel inventore, aliquid debitis quisquam sapiente similique dignissimos illo laboriosam. Eius architecto odio deleniti impedit labore voluptate!</p>
-                <p class="center">
-                    <a href="novedades.html">Continuar</a>
-                </p>
-            </div>
-            <div class="novedades-gallery">
-                <div class="second-gallery js-flickity" data-flickity-options='{ "autoPlay": 2800, "draggable": false}'>
-                    <div class="pop">
-                        <div class="img">
-                            <a href="nuevos/book.html">
-                                <img src="img/libro-nov.webp" width="150">
-                            </a>
-                        </div>
-                        <div class="more">
-                            <a href="">
-                                <span class="author">Slavoj Zizek</span>
-                            </a>
-                            <a href="nuevos/book.html">
-                                <span class="title2">Pandemia</span>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe. Consequuntur, molestias voluptatum, eligendi itaque mollitia qui eius enim voluptate culpa quo nihil eum esse harum aperiam corporis sapiente ab?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pop">
-                        <div class="img">
-                            <a href="nuevos/book.html">
-                                <img src="img/loscombatientes.webp" width="150">
-                            </a>
-                        </div>
-                        <div class="more">
-                            <a href="autores/autor.html">
-                                <span class="author">Cristina Morales</span>
-                            </a>
-                            <a href="nuevos/book.html">
-                                <span class="title2">Los combatientes</span>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe. Consequuntur, molestias voluptatum, eligendi itaque mollitia qui eius enim voluptate culpa quo nihil eum esse harum aperiam corporis sapiente ab?</p>
-                        </div>
-                    </div>
-                    <div class="pop">
-                        <div class="img">
-                            <a href="nuevos/book.html">
-                                <img src="img/libro-nov.webp" width="150">
-                            </a>
-                        </div>
-                        <div class="more">
-                            <a href="autores/autor.html">
-                                <span class="author">Slavoj Zizek</span>
-                            </a>
-                            <a href="nuevos/book.html">
-                                <span class="title2">Pandemia</span>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe. Consequuntur, molestias voluptatum, eligendi itaque mollitia qui eius enim voluptate culpa quo nihil eum esse harum aperiam corporis sapiente ab?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pop">
-                        <div class="img">
-                            <a href="nuevos/book.html">
-                                <img src="img/loscombatientes.webp" width="150">
-                            </a>
-                        </div>
-                        <div class="more">
-                            <a href="autores/autor.html">
-                                <span class="author">Cristina Morales</span>
-                            </a>
-                            <a href="nuevos/book.html">
-                                <span class="title2">Los combatientes</span>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, saepe. Consequuntur, molestias voluptatum, eligendi itaque mollitia qui eius enim voluptate culpa quo nihil eum esse harum aperiam corporis sapiente ab?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="row2">
-            <div class="agenda">
-                <div class="agenda-todo">
-                    <p>AGENDA -</p> 
-                    <a href="agenda.html">Ver todo</a>
-                </div>
-                <div class="month">      
-                    <ul>
-                      <!-- <li class="prev">&#10094;</li>
-                      <li class="next">&#10095;</li> -->
-                      <li>
-                        Mayo<br>
-                        <span style="font-size:12px">2020</span>
-                      </li>
-                    </ul>
-                </div>
-                  
-                  <ul class="weekdays">
-                    <li>Lu</li>
-                    <li>Ma</li>
-                    <li>Mi</li>
-                    <li>Ju</li>
-                    <li>Vi</li>
-                    <li>Sa</li>
-                    <li>Su</li>
-                  </ul>
-                  
-                  <ul class="days">  
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li><a style="text-decoration:none;" href="../eventos/evento1.html"><span class="active">20</span></a></li>                    
-                    <li>22</li>
-                    <li>23</li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li>
-                  </ul>
-                  <!-- <div class="next">
-                      <h4>Próximo evento</h4>
-                      <h2></h2>
-                  </div> -->
-            </div>
-            <div class="noticias">
-                <div class="agenda-todo">
-                    <p>NOTICIAS -</p> 
-                    <a href="noticias.html">Ver todo</a>
-                </div>
-                <div class="noti-home">
-                    <a href="noticias.html">
-                        <div class="tip1"><h4>Debates</h4>
-                            <span class="date">30/04/20</span>   
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta commodi.</p>
-                    </a> 
-                </div>
-                <div class="noti-home">
-                    <a href="noticias.html">
-                        <div class="tip1"><h4>Premios y distinciones</h4>
-                            <span class="date">30/04/20</span>   
-                        </div>                  
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </a> 
-                </div>
-                <div class="noti-home">
-                    <a href="noticias.html">
-                        <div class="tip1"><h4>General</h4>
-                            <span class="date">30/04/20</span>   
-                        </div>                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </a> 
-                </div>
-                <div class="noti-home">
-                    <a href="noticias.html">
-                        <div class="tip1"><h4>Debates</h4>
-                            <span class="date">30/04/20</span>   
-                        </div>                        
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing dicta.</p>
-                    </a> 
-                </div>
-            </div>
-        </section>
-
-    </main>
+    {{{body}}}
     <footer class="holder">
         <div class="footer">
             <div class="footer1">
-              <p>© 2020 Editorial Epigrama.</p> 
-              <p>Editor y director: Lorenzo Lorenzo</p>       
-              <p>Diseño: Fernando Bondioni</p>
+                <p>© 2020 Editorial Epigrama.</p>
+                <p>Editor y director: Lorenzo Lorenzo</p>
+                <p>Diseño: Fernando Bondioni</p>
             </div>
             <div class="nav-footer1">
                 <ul>
-                    <li><a href="novedades.html">Novedades</a></li>
-                    <li><a href="catalogo.html">Catálogo</a></li>
-                    <li><a href="autores.html">Autores</a></li>
-                    <li><a href="agenda.html">Agenda</a></li>
-                    <li><a href="editorial.html">La Editorial</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>                    
+                    <li><a href="/novedades">Novedades</a></li>
+                    <li><a href="/catalogo">Catálogo</a></li>
+                    <li><a href="/autores">Autores</a></li>
+                    <li><a href="/agenda">Agenda</a></li>
+                    <li><a href="/editorial">La Editorial</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="nav-footer2">
                 <ul>
-                    <li><a class="icon-facebook" href=""></a></li>
-                    <li><a class="icon-twitter2" href=""></a></li>
-                    <li><a class="icon-instagram2" href=""></a></li>
-                    <li><a class="icon-whatsapp2" href=""></a></li>
+                    <li><a class="icon-facebook" href="#"></a></li>
+                    <li><a class="icon-twitter2" href="#"></a></li>
+                    <li><a class="icon-instagram2" href="#"></a></li>
+                    <li><a class="icon-whatsapp2" href="#"></a></li>
                 </ul>
             </div>
         </div>
     </footer>
-    <script src="js/flickity.pkgd.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="javascripts/scripts.js"></script>
+
 </body>
+
 </html>
